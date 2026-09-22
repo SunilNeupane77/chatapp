@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -38,7 +39,14 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-background text-foreground">
         {children}
 
-        {/* Add your ChatDrill widget script here after deployment */}
+        {/* ChatDrill Widget */}
+        <Script id="chatdrill-config" strategy="afterInteractive">
+          {`window.CHATDRILL_WIDGET_KEY = "pk_live_2e8ace29c321"; window.CHATDRILL_API_URL = "https://api.chatdrill.com";`}
+        </Script>
+        <Script
+          src="https://api.chatdrill.com/widget-loader/widget.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
