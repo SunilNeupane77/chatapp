@@ -6,6 +6,7 @@ const NAV_LINKS = [
   { label: "Features", href: "#features" },
   { label: "How It Works", href: "#how-it-works" },
   { label: "Pricing", href: "#pricing" },
+  { label: "Lead Form", href: "#lead-form" },
   { label: "FAQ", href: "#faq" },
 ];
 
@@ -175,7 +176,7 @@ const Navbar: FC = () => (
           Sign in
         </a>
         <a
-          href="#pricing"
+          href="#lead-form"
           className="inline-flex items-center gap-1.5 rounded-full bg-[var(--brand-600)] px-4 py-2 text-sm font-medium text-white shadow-sm transition-all hover:bg-[var(--brand-700)] hover:shadow-md"
         >
           Get Started Free
@@ -211,7 +212,7 @@ const Hero: FC = () => (
       {/* CTAs */}
       <div className="flex flex-col sm:flex-row items-center gap-4">
         <a
-          href="#pricing"
+          href="#lead-form"
           className="inline-flex h-12 items-center gap-2 rounded-full bg-[var(--brand-600)] px-8 text-base font-semibold text-white shadow-md transition-all hover:bg-[var(--brand-700)] hover:shadow-lg"
         >
           Start for free
@@ -491,7 +492,7 @@ const CtaBanner: FC = () => (
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href="#pricing"
+            href="#lead-form"
             className="inline-flex h-12 items-center gap-2 rounded-full bg-white px-8 text-base font-semibold text-[var(--brand-700)] shadow transition-all hover:shadow-lg hover:scale-105"
           >
             Get started free
@@ -507,6 +508,109 @@ const CtaBanner: FC = () => (
         <p className="mt-6 text-xs text-blue-200">
           No credit card required · Free forever plan · Cancel anytime
         </p>
+      </div>
+    </div>
+  </section>
+);
+
+const LeadCaptureForm: FC = () => (
+  <section id="lead-form" className="bg-[var(--muted)] py-24">
+    <div className="container">
+      <div className="mx-auto max-w-3xl rounded-2xl border border-[var(--border)] bg-[var(--card)] p-8 shadow-[var(--shadow-md)] md:p-10">
+        <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)]">
+          Request a demo
+        </h2>
+        <p className="mt-3 text-sm text-[var(--muted-fg)]">
+          Send an enquiry and it will appear in LeadMino in a few seconds.
+        </p>
+
+        <form
+          className="mt-8 grid gap-5"
+          id="sunil-form"
+          name="sunil form"
+          method="post"
+          action="https://app.leadmino.com/public/forms/JcYBFA8QSb93pFsf"
+        >
+          <div className="grid gap-5 md:grid-cols-2">
+            <label className="block text-sm font-medium text-[var(--foreground)]">
+              Full name
+              <input
+                type="text"
+                name="name"
+                required
+                className="mt-2 w-full rounded-xl border border-[var(--border)] bg-white px-4 py-3 text-sm text-[var(--foreground)] outline-none transition focus:border-[var(--brand-400)] focus:ring-2 focus:ring-[var(--brand-100)]"
+                placeholder="Your name"
+              />
+            </label>
+
+            <label className="block text-sm font-medium text-[var(--foreground)]">
+              Work email
+              <input
+                type="email"
+                name="email"
+                required
+                className="mt-2 w-full rounded-xl border border-[var(--border)] bg-white px-4 py-3 text-sm text-[var(--foreground)] outline-none transition focus:border-[var(--brand-400)] focus:ring-2 focus:ring-[var(--brand-100)]"
+                placeholder="you@company.com"
+              />
+            </label>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2">
+            <label className="block text-sm font-medium text-[var(--foreground)]">
+              Phone number
+              <input
+                type="tel"
+                name="phone"
+                required
+                className="mt-2 w-full rounded-xl border border-[var(--border)] bg-white px-4 py-3 text-sm text-[var(--foreground)] outline-none transition focus:border-[var(--brand-400)] focus:ring-2 focus:ring-[var(--brand-100)]"
+                placeholder="+977 98XXXXXXXX"
+              />
+            </label>
+
+            <label className="block text-sm font-medium text-[var(--foreground)]">
+              Company
+              <input
+                type="text"
+                name="companyName"
+                required
+                className="mt-2 w-full rounded-xl border border-[var(--border)] bg-white px-4 py-3 text-sm text-[var(--foreground)] outline-none transition focus:border-[var(--brand-400)] focus:ring-2 focus:ring-[var(--brand-100)]"
+                placeholder="Company name"
+              />
+            </label>
+          </div>
+
+          <label className="block text-sm font-medium text-[var(--foreground)]">
+            Message
+            <textarea
+              name="notes"
+              rows={4}
+              required
+              className="mt-2 w-full rounded-xl border border-[var(--border)] bg-white px-4 py-3 text-sm text-[var(--foreground)] outline-none transition focus:border-[var(--brand-400)] focus:ring-2 focus:ring-[var(--brand-100)]"
+              placeholder="Tell us about your use case"
+            />
+          </label>
+
+          <input
+            type="text"
+            name="website_url"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            style={{ position: "absolute", left: "-9999px" }}
+          />
+          <input
+            type="hidden"
+            name="page_url"
+            value="https://chatapp-wnqg.vercel.app/"
+          />
+
+          <button
+            type="submit"
+            className="inline-flex h-12 items-center justify-center rounded-full bg-[var(--brand-600)] px-8 text-sm font-semibold text-white shadow-sm transition-all hover:bg-[var(--brand-700)] hover:shadow-md"
+          >
+            Send
+          </button>
+        </form>
       </div>
     </div>
   </section>
@@ -548,6 +652,7 @@ export default function Home() {
         <HowItWorks />
         <Pricing />
         <Faq />
+        <LeadCaptureForm />
         <CtaBanner />
       </main>
       <Footer />
