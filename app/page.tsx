@@ -1,4 +1,5 @@
 import type { FC } from "react";
+import Link from "next/link";
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
@@ -146,12 +147,12 @@ const Navbar: FC = () => (
   <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-white/80 backdrop-blur-md">
     <nav className="container flex h-16 items-center justify-between">
       {/* Logo */}
-      <a href="/" className="flex items-center gap-2 font-semibold text-lg text-[var(--foreground)]">
+      <Link href="/" className="flex items-center gap-2 font-semibold text-lg text-[var(--foreground)]">
         <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--brand-600)] text-white text-sm font-bold">
           F
         </span>
         FlowDesk
-      </a>
+      </Link>
 
       {/* Links */}
       <ul className="hidden md:flex items-center gap-8 text-sm text-[var(--muted-fg)]">
