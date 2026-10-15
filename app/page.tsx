@@ -26,7 +26,7 @@ const FEATURES = [
     icon: "🔗",
     title: "Connects to Your Stack",
     description:
-      "Push conversations to HubSpot, Slack, Notion, or any webhook. Works with the tools your team already uses.",
+      "Push conversations to HubSpot, Pipedrive, Slack, Notion, or any webhook. Works with the tools your team already uses.",
   },
   {
     icon: "📊",
@@ -137,7 +137,7 @@ const FAQS = [
   },
 ];
 
-const LOGOS = ["Vercel", "Stripe", "Linear", "Notion", "Figma", "GitHub"];
+const LOGOS = ["Vercel", "Stripe", "Linear", "Notion", "Pipedrive", "Figma", "GitHub"];
 
 // ─── Sub-Components ──────────────────────────────────────────────────────────
 
