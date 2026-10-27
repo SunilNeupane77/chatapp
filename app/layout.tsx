@@ -51,6 +51,12 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
 
+        <Script
+          id="leadmino-capture-default"
+          src="https://app.leadmino.com/public/capture/IKE_-xgk9J7F_zod.js"
+          strategy="afterInteractive"
+        />
+
         {leadMinoSnippetSrc ? (
           <Script
             id="leadmino-script"
