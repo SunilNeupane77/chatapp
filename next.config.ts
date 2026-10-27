@@ -26,11 +26,11 @@ const nextConfig: NextConfig = {
             key: "Content-Security-Policy",
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' https://api.chatdrill.com",
+              "script-src 'self' 'unsafe-inline' https://api.chatdrill.com https://leadmino.com https://*.leadmino.com",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "font-src 'self' https://fonts.gstatic.com",
               "img-src 'self' data: https:",
-              "connect-src 'self' https://api.chatdrill.com wss://api.chatdrill.com",
+              "connect-src 'self' https://api.chatdrill.com wss://api.chatdrill.com https://leadmino.com https://*.leadmino.com wss://*.leadmino.com",
               "frame-src 'none'",
             ].join("; "),
           },

@@ -13,6 +13,9 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const leadMinoSnippetSrc = process.env.NEXT_PUBLIC_LEADMINO_SNIPPET_SRC;
+const leadMinoSiteId = process.env.NEXT_PUBLIC_LEADMINO_SITE_ID;
+
 export const metadata: Metadata = {
   title: "FlowDesk — Customer Support That Converts",
   description:
@@ -48,12 +51,20 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
 
-        {/* LeadMino website lead capture */}
         <Script
-          id="leadmino-capture"
+          id="leadmino-capture-default"
           src="https://app.leadmino.com/public/capture/IKE_-xgk9J7F_zod.js"
           strategy="afterInteractive"
         />
+
+        {leadMinoSnippetSrc ? (
+          <Script
+            id="leadmino-script"
+            src={leadMinoSnippetSrc}
+            strategy="afterInteractive"
+            data-site-id={leadMinoSiteId}
+          />
+        ) : null}
       </body>
     </html>
   );
