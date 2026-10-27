@@ -47,6 +47,13 @@ export default function RootLayout({
           src="https://api.chatdrill.com/widget-loader/widget.js"
           strategy="afterInteractive"
         />
+
+        {/* LeadMino website lead capture */}
+        <Script
+          id="leadmino-capture"
+          src="https://app.leadmino.com/public/capture/IKE_-xgk9J7F_zod.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
