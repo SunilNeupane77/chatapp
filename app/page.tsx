@@ -7,6 +7,7 @@ const NAV_LINKS = [
   { label: "How It Works", href: "#how-it-works" },
   { label: "Pricing", href: "#pricing" },
   { label: "FAQ", href: "#faq" },
+  { label: "Contact", href: "#contact" },
 ];
 
 const FEATURES = [
@@ -138,6 +139,9 @@ const FAQS = [
 ];
 
 const LOGOS = ["Vercel", "Stripe", "Linear", "Notion", "Figma", "GitHub"];
+const LEAD_CAPTURE_ACTION =
+  process.env.NEXT_PUBLIC_LEADMINO_FORM_ACTION ??
+  "https://app.leadmino.com/f/IKE_-xgk9J7F_zod";
 
 // ─── Sub-Components ──────────────────────────────────────────────────────────
 
@@ -457,6 +461,107 @@ const Pricing: FC = () => (
   </section>
 );
 
+const LeadCapture: FC = () => (
+  <section id="contact" className="bg-[var(--muted)] py-24">
+    <div className="container">
+      <div className="mx-auto max-w-2xl rounded-2xl border border-[var(--border)] bg-white p-8 shadow-[var(--shadow-md)]">
+        <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)]">
+          Get a free setup call
+        </h2>
+        <p className="mt-3 text-[var(--muted-fg)]">
+          Send your details and we&apos;ll help you launch lead capture on your site.
+        </p>
+
+        <form
+          className="mt-8 grid gap-4 sm:grid-cols-2"
+          method="POST"
+          action={LEAD_CAPTURE_ACTION}
+        >
+          <input type="hidden" name="source" value="chatapp-landing-page" />
+          <input type="hidden" name="page_url" value="https://your-site-url" />
+
+          <div className="sm:col-span-2">
+            <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-[var(--foreground)]">
+              Full name
+            </label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              required
+              className="w-full rounded-xl border border-[var(--border)] px-4 py-3 text-sm outline-none transition-all focus:border-[var(--brand-400)] focus:ring-2 focus:ring-[var(--brand-100)]"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-[var(--foreground)]">
+              Email
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              className="w-full rounded-xl border border-[var(--border)] px-4 py-3 text-sm outline-none transition-all focus:border-[var(--brand-400)] focus:ring-2 focus:ring-[var(--brand-100)]"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="phone" className="mb-1.5 block text-sm font-medium text-[var(--foreground)]">
+              Phone
+            </label>
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              className="w-full rounded-xl border border-[var(--border)] px-4 py-3 text-sm outline-none transition-all focus:border-[var(--brand-400)] focus:ring-2 focus:ring-[var(--brand-100)]"
+            />
+          </div>
+
+          <div className="sm:col-span-2">
+            <label htmlFor="company" className="mb-1.5 block text-sm font-medium text-[var(--foreground)]">
+              Company
+            </label>
+            <input
+              id="company"
+              name="company"
+              type="text"
+              className="w-full rounded-xl border border-[var(--border)] px-4 py-3 text-sm outline-none transition-all focus:border-[var(--brand-400)] focus:ring-2 focus:ring-[var(--brand-100)]"
+            />
+          </div>
+
+          <div className="sm:col-span-2">
+            <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-[var(--foreground)]">
+              Message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows={4}
+              required
+              className="w-full rounded-xl border border-[var(--border)] px-4 py-3 text-sm outline-none transition-all focus:border-[var(--brand-400)] focus:ring-2 focus:ring-[var(--brand-100)]"
+            />
+          </div>
+
+          <div className="hidden">
+            <label htmlFor="website">Website</label>
+            <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+          </div>
+
+          <div className="sm:col-span-2">
+            <button
+              type="submit"
+              className="inline-flex h-12 items-center justify-center rounded-full bg-[var(--brand-600)] px-8 text-base font-semibold text-white shadow-sm transition-all hover:bg-[var(--brand-700)] hover:shadow-md"
+            >
+              Send enquiry
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+);
+
 const Faq: FC = () => (
   <section id="faq" className="bg-[var(--muted)] py-24">
     <div className="container max-w-3xl">
@@ -546,6 +651,7 @@ export default function Home() {
         <LogoBar />
         <Features />
         <HowItWorks />
+        <LeadCapture />
         <Pricing />
         <Faq />
         <CtaBanner />

@@ -13,6 +13,9 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const leadMinoSnippetSrc = process.env.NEXT_PUBLIC_LEADMINO_SNIPPET_SRC;
+const leadMinoSiteId = process.env.NEXT_PUBLIC_LEADMINO_SITE_ID;
+
 export const metadata: Metadata = {
   title: "FlowDesk — Customer Support That Converts",
   description:
@@ -47,6 +50,15 @@ export default function RootLayout({
           src="https://api.chatdrill.com/widget-loader/widget.js"
           strategy="afterInteractive"
         />
+
+        {leadMinoSnippetSrc ? (
+          <Script
+            id="leadmino-script"
+            src={leadMinoSnippetSrc}
+            strategy="afterInteractive"
+            data-site-id={leadMinoSiteId}
+          />
+        ) : null}
       </body>
     </html>
   );
